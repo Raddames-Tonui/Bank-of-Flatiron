@@ -39,20 +39,11 @@ function TransactionsList() {
         </tr>
 
         {transactions.map((transaction) => (
-          <tr key={transaction.id}>
-            <th>
-              <h3 className="ui center aligned header">{transaction.date}</h3>
-            </th>
-            <th>
-              <h3 className="ui center aligned header">{transaction.description}</h3>
-            </th>
-            <th>
-              <h3 className="ui center aligned header">{transaction.category}</h3>
-            </th>
-            <th>
-              <h3 className="ui center aligned header">{transaction.amount}</h3>
-            </th>
-          </tr>
+         <Transaction key={transaction.id}  
+                      date={transaction.date} 
+                      description={transaction.description} 
+                      category={transaction.category} 
+                      amount={transaction.amount} />
         ))}
       </tbody>
     </table>
