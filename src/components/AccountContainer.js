@@ -1,38 +1,39 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import TransactionsList from "./TransactionsList";
 import Search from "./Search";
 import AddTransactionForm from "./AddTransactionForm";
 
-
 function AccountContainer() {
-
-  // Fetching data from db.json
   const [transactions, setTransactions] = useState([]);
+  const [filteredTransactions, setFilteredTransactions] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8001/transactions')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok.');
-        }
-        return response.json();
-      })
+    fetch("http://localhost:8001/transactions")
+      .then((response) => response.json())
       .then((data) => {
         setTransactions(data);
-      })
+        setFilteredTransactions(data); // Initially set filtered transactions to all transactions
+      });
   }, []);
 
-  // After adding transaction to display below the other transactions
-  function addTransaction(newTransaction){
-      setTransactions([...transactions, newTransaction])
-  }
+  // Function to filter transactions based on search term
+  const handleSearch = (searchTerm) => {
+    const filtered = transactions.filter((transaction) =>
+      transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredTransactions(filtered);
+  };
 
-  
+  // Function to add a new transaction
+  const addTransaction = (newTransaction) => {
+    setTransactions([...transactions, newTransaction]);
+  };
+
   return (
     <div>
-      <Search />
-      <AddTransactionForm onAddTransaction={addTransaction}/>
-      <TransactionsList transactions={transactions}/>
+      <Search onSearch={handleSearch} />
+      <AddTransactionForm onAddTransaction={addTransaction} />
+      <TransactionsList transactions={filteredTransactions} />
     </div>
   );
 }
