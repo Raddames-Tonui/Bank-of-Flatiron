@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Transaction from "./Transaction";
 
-function AddTransactionForm() {
+function AddTransactionForm({onAddTransaction}) {
+
   const [formData, setFormData] = useState({
     date: "",
     description: "",
@@ -9,24 +9,37 @@ function AddTransactionForm() {
     amount: "",
   });
 
-  const [transactions, setTransactions] = useState([]);
-
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(formData);
+    
+    // Send form data to backend server
 
-    const newTransaction = {
-      id: Math.random().toString(36).substr(2, 9),
-      ...formData,
-    };
-
-    setTransactions([...transactions, newTransaction]);
-    setFormData({
-      date: "",
-      description: "",
-      category: "",
-      amount: "",
-    });
+    fetch("http://localhost:8001/transactions",{
+      method : "POST",
+      headers : {"Content-Type" : "application/json"},
+      body : JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          alert("Failed to add transaction");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        onAddTransaction(data)
+        alert("Transaction added successfully:", data);
+        //  Resetting the form after successful submission
+        setFormData({
+          date: "",
+          description: "",
+          category: "",
+          amount: "",
+        
+        });
+      })
+      .catch((error) => {
+        console.error("Error adding transaction:", error);
+      });
   }
 
   function handleChange(event) {
@@ -47,6 +60,7 @@ function AddTransactionForm() {
             name="date"
             value={formData.date}
             onChange={handleChange}
+            required
           />
           <input
             id="description"
@@ -55,6 +69,7 @@ function AddTransactionForm() {
             placeholder="Description"
             value={formData.description}
             onChange={handleChange}
+            required
           />
           <input
             id="category"
@@ -63,6 +78,7 @@ function AddTransactionForm() {
             placeholder="Category"
             value={formData.category}
             onChange={handleChange}
+            required
           />
           <input
             id="amount"
@@ -72,17 +88,13 @@ function AddTransactionForm() {
             step="0.01"
             value={formData.amount}
             onChange={handleChange}
+            required
           />
         </div>
         <button className="ui button" type="submit">
-          Add Transaction
+             Add Transaction
         </button>
       </form>
-
-      {/* Render the list of transactions */}
-
-        
-      
     </div>
   );
 }

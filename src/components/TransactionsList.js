@@ -1,24 +1,6 @@
-import React, { useState, useEffect } from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList() {
-  const [transactions, setTransactions] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:8001/transactions')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok.');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setTransactions(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+function TransactionsList({transactions}) {
 
   return (
     <table className="ui celled striped padded table">
@@ -39,11 +21,7 @@ function TransactionsList() {
         </tr>
 
         {transactions.map((transaction) => (
-         <Transaction key={transaction.id}  
-                      date={transaction.date} 
-                      description={transaction.description} 
-                      category={transaction.category} 
-                      amount={transaction.amount} />
+         <Transaction key={transaction.id} date={transaction.date}  description={transaction.description} category={transaction.category} amount={transaction.amount}/>
         ))}
       </tbody>
     </table>
