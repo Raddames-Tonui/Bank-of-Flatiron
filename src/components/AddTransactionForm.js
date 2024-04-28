@@ -14,7 +14,7 @@ function AddTransactionForm({onAddTransaction}) {
     
     // Send form data to backend server
 
-    fetch("http://localhost:8001/transactions",{
+    fetch("http://localhost:3000/transactions",{
       method : "POST",
       headers : {"Content-Type" : "application/json"},
       body : JSON.stringify(formData),
