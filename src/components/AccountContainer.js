@@ -8,7 +8,7 @@ function AccountContainer() {
   const [filteredTransactions, setFilteredTransactions] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/transactions")
+    fetch("https://bank-of-flatiron-amrl.onrender.com/transactions")
       .then((response) => response.json())
       .then((data) => {
         setTransactions(data);

@@ -14,7 +14,7 @@ function AddTransactionForm({onAddTransaction}) {
     
     // Send form data to backend server
 
-    fetch("http://localhost:3000/transactions",{
+    fetch("https://bank-of-flatiron-amrl.onrender.com/transactions",{
       method : "POST",
       headers : {"Content-Type" : "application/json"},
       body : JSON.stringify(formData),

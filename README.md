@@ -20,7 +20,7 @@
 
 ## Live link
 Deployed Frontend can be accessed here [Front End]()  
-Deployed Backend can be accessed here [backend End]()
+Deployed Backend can be accessed here [backend End](https://bank-of-flatiron-amrl.onrender.com/transactions)
 
 
 #### GET /transactions (How json-server looks like)
@@ -63,7 +63,7 @@ Request Object:
   "date": "string",
   "description": "string",
   "category": "string",
-  "amount": number
+  "amount": "number"
 }
 ```
 
