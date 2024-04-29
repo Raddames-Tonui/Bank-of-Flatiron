@@ -6,6 +6,7 @@ import AddTransactionForm from "./AddTransactionForm";
 function AccountContainer() {
   const [transactions, setTransactions] = useState([]);
   const [filteredTransactions, setFilteredTransactions] = useState([]);
+  const [onDelete, setOnDelete] = useState(false)
 
   useEffect(() => {
     fetch("https://bank-of-flatiron-amrl.onrender.com/transactions")
@@ -14,7 +15,7 @@ function AccountContainer() {
         setTransactions(data);
         setFilteredTransactions(data); // Initially set filtered transactions to all transactions
       });
-  }, []);
+  }, [onDelete]);
 
   // Function to filter transactions based on search term
   const handleSearch = (searchTerm) => {
@@ -29,11 +30,13 @@ function AccountContainer() {
     setTransactions([...transactions, newTransaction]);
   };
 
+  
+
   return (
     <div>
       <Search onSearch={handleSearch} />
       <AddTransactionForm onAddTransaction={addTransaction} />
-      <TransactionsList transactions={filteredTransactions} />
+      <TransactionsList transactions={filteredTransactions} onDelete={onDelete} setOnDelete={setOnDelete}/>
     </div>
   );
 }

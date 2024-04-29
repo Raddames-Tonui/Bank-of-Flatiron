@@ -1,6 +1,7 @@
 import Transaction from "./Transaction";
 
-function TransactionsList({transactions}) {
+function TransactionsList({transactions, onDelete, setOnDelete}) {
+
 
   return (
     <table className="ui celled striped padded table">
@@ -21,7 +22,7 @@ function TransactionsList({transactions}) {
         </tr>
 
         {transactions.map((transaction) => (
-         <Transaction key={transaction.id} date={transaction.date}  description={transaction.description} category={transaction.category} amount={transaction.amount}/>
+         <Transaction key={transaction.id} transaction={transaction} onDelete={onDelete} setOnDelete={setOnDelete}/>
         ))}
       </tbody>
     </table>
@@ -29,3 +30,4 @@ function TransactionsList({transactions}) {
 }
 
 export default TransactionsList;
+// date={transaction.date}  description={transaction.description} category={transaction.category} amount={transaction.amount}

@@ -10,6 +10,7 @@
         - See a table of the transactions.
         - Fill out and submit the form to add a new transaction. 
         - Filter transactions by typing into the search bar. 
+        - Delete a transaction 
 
 
 ## Setup/Installation Requirements
