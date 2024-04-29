@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Bank-of-Flatiron/static/css/main.6b1e9f23.chunk.css",
+    "main.js": "/Bank-of-Flatiron/static/js/main.04d3ab71.chunk.js",
+    "main.js.map": "/Bank-of-Flatiron/static/js/main.04d3ab71.chunk.js.map",
+    "runtime-main.js": "/Bank-of-Flatiron/static/js/runtime-main.fe24f0ac.js",
+    "runtime-main.js.map": "/Bank-of-Flatiron/static/js/runtime-main.fe24f0ac.js.map",
+    "static/css/2.07af5a20.chunk.css": "/Bank-of-Flatiron/static/css/2.07af5a20.chunk.css",
+    "static/js/2.e20ca97b.chunk.js": "/Bank-of-Flatiron/static/js/2.e20ca97b.chunk.js",
+    "static/js/2.e20ca97b.chunk.js.map": "/Bank-of-Flatiron/static/js/2.e20ca97b.chunk.js.map",
+    "index.html": "/Bank-of-Flatiron/index.html",
+    "static/css/2.07af5a20.chunk.css.map": "/Bank-of-Flatiron/static/css/2.07af5a20.chunk.css.map",
+    "static/css/main.6b1e9f23.chunk.css.map": "/Bank-of-Flatiron/static/css/main.6b1e9f23.chunk.css.map",
+    "static/js/2.e20ca97b.chunk.js.LICENSE.txt": "/Bank-of-Flatiron/static/js/2.e20ca97b.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/Bank-of-Flatiron/static/media/outline-icons.ddae9b1b.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fe24f0ac.js",
+    "static/css/2.07af5a20.chunk.css",
+    "static/js/2.e20ca97b.chunk.js",
+    "static/css/main.6b1e9f23.chunk.css",
+    "static/js/main.04d3ab71.chunk.js"
+  ]
+}
