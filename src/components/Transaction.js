@@ -10,7 +10,9 @@ function Transaction({ transaction, setOnDelete }) {
     }
   )
     .then((response) => response.json())
-    .then((res) => setOnDelete(id))
+    .then((res) =>{
+      alert('Deleted Successfully');
+      setOnDelete(id)} )
  } 
 
 
