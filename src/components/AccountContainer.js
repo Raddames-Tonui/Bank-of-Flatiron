@@ -15,7 +15,7 @@ function AccountContainer() {
         setTransactions(data);
         setFilteredTransactions(data); // Initially set filtered transactions to all transactions
       });
-  }, [onDelete]);
+  }, [onDelete, transactions]);
 
   // Function to filter transactions based on search term
   const handleSearch = (searchTerm) => {
@@ -35,7 +35,7 @@ function AccountContainer() {
   return (
     <div>
       <Search onSearch={handleSearch} />
-      <AddTransactionForm onAddTransaction={addTransaction} />
+      <AddTransactionForm onAddTransaction={addTransaction} setTransactions={setTransactions}/>
       <TransactionsList transactions={filteredTransactions} onDelete={onDelete} setOnDelete={setOnDelete}/>
     </div>
   );

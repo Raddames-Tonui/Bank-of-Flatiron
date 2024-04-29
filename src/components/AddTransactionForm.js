@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function AddTransactionForm({onAddTransaction}) {
+function AddTransactionForm({onAddTransaction, setTransactions}) {
 
   const [formData, setFormData] = useState({
     date: "",
@@ -26,6 +26,7 @@ function AddTransactionForm({onAddTransaction}) {
         return response.json();
       })
       .then((data) => {
+        setTransactions(data)
         onAddTransaction(data)
         alert("Transaction added successfully:", data);
         //  Resetting the form after successful submission
