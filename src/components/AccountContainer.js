@@ -15,7 +15,7 @@ function AccountContainer() {
         setTransactions(data);
         setFilteredTransactions(data); // Initially set filtered transactions to all transactions
       });
-  }, [onDelete, transactions]);
+  }, [ transactions]);
 
   // Function to filter transactions based on search term
   const handleSearch = (searchTerm) => {
