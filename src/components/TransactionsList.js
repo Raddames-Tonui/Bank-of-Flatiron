@@ -1,8 +1,7 @@
+import React from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList({transactions, onDelete, setOnDelete}) {
-
-
+function TransactionsList({ transactions, onDeleteTransaction, setOnDelete }) {
   return (
     <table className="ui celled striped padded table">
       <tbody>
@@ -22,7 +21,12 @@ function TransactionsList({transactions, onDelete, setOnDelete}) {
         </tr>
 
         {transactions.map((transaction) => (
-         <Transaction key={transaction.id} transaction={transaction} onDelete={onDelete} setOnDelete={setOnDelete}/>
+          <Transaction
+            key={transaction.id}
+            transaction={transaction}
+            onDeleteTransaction={onDeleteTransaction} // Pass onDeleteTransaction to Transaction
+            setOnDelete={setOnDelete} // Pass setOnDelete to Transaction
+          />
         ))}
       </tbody>
     </table>
@@ -30,4 +34,3 @@ function TransactionsList({transactions, onDelete, setOnDelete}) {
 }
 
 export default TransactionsList;
-// date={transaction.date}  description={transaction.description} category={transaction.category} amount={transaction.amount}

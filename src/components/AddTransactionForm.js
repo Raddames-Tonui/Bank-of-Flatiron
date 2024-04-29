@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-function AddTransactionForm({onAddTransaction, setTransactions}) {
-
+function AddTransactionForm({ onAddTransaction }) {
   const [formData, setFormData] = useState({
     date: "",
     description: "",
@@ -11,35 +10,33 @@ function AddTransactionForm({onAddTransaction, setTransactions}) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    
-    // Send form data to backend server
 
-    fetch("https://bank-of-flatiron-amrl.onrender.com/transactions",{
-      method : "POST",
-      headers : {"Content-Type" : "application/json"},
-      body : JSON.stringify(formData),
+    // Send form data to backend server
+    fetch("https://bank-of-flatiron-amrl.onrender.com/transactions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
     })
       .then((response) => {
         if (!response.ok) {
-          alert("Failed to add transaction");
+          throw new Error("Failed to add transaction");
         }
         return response.json();
       })
       .then((data) => {
-        setTransactions(data)
-        onAddTransaction(data)
+        onAddTransaction(data); // Update transactions list using onAddTransaction function
         alert("Transaction added successfully:", data);
-        //  Resetting the form after successful submission
+        // Resetting the form after successful submission
         setFormData({
           date: "",
           description: "",
           category: "",
           amount: "",
-        
         });
       })
       .catch((error) => {
         console.error("Error adding transaction:", error);
+        alert("Failed to add transaction");
       });
   }
 
@@ -93,7 +90,7 @@ function AddTransactionForm({onAddTransaction, setTransactions}) {
           />
         </div>
         <button className="ui button" type="submit">
-             Add Transaction
+          Add Transaction
         </button>
       </form>
     </div>
