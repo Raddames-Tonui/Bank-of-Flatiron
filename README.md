@@ -46,38 +46,6 @@ Example Response:
 ]
 ```
 
-#### POST `/transactions`
-
-Required Headers:
-
-```js
-{
-  "Content-Type": "application/json"
-}
-```
-
-Request Object:
-
-```json
-{
-  "date": "string",
-  "description": "string",
-  "category": "string",
-  "amount": "number"
-}
-```
-
-Example Response:
-
-```json
-{
-  "id": 1,
-  "date": "2019-12-01",
-  "description": "Paycheck from Bob's Burgers",
-  "category": "Income",
-  "amount": 1000
-}
-```
 
 ## Support and contact details
      email : raddamestonui48@gmail.com
