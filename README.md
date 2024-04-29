@@ -22,6 +22,9 @@
 Deployed Frontend can be accessed here [Front End]()  
 Deployed Backend can be accessed here [backend End](https://bank-of-flatiron-amrl.onrender.com/transactions)
 
+## Technologies used
+    - REACT
+    - JSON SERVER
 
 #### GET /transactions (How json-server looks like)
 
