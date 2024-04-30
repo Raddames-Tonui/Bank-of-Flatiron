@@ -17,7 +17,7 @@
     1. Download zip in the code section of github to your desired folder
     2. Extract the files
     3. Open the folder with vs code.
-    4. Then run `node server.js` to run our server. 
+    4. Then run `npm start` to run the website. 
 
 ## Live link
 Deployed Frontend can be accessed here [Front End](https://raddames-tonui.github.io/Bank-of-Flatiron/)  
